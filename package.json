@@ -5,6 +5,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "mkdir -p dist && echo 'Build simulado'"
+    "build": "mkdir build && cp app.js build/"
   }
 }
