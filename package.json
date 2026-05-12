@@ -1,0 +1,9 @@
+{
+  "name": "yo-soy-historia-test",
+  "version": "1.0.0",
+  "description": "Prueba de despliegue",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
