@@ -5,6 +5,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "echo 'No build needed for this test'"
+    "build": "mkdir -p dist && echo 'Build simulado'"
   }
 }
