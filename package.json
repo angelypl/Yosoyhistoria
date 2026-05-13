@@ -1,11 +1,16 @@
 {
-  "name": "yo-soy-historia-test",
+  "name": "yo-soy-historia",
+  "type": "module",
   "version": "1.0.0",
-  "description": "Prueba de despliegue",
-  "main": "app.js",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro preview",
-    "build": "astro build"
+    "start": "node ./dist/server/entry.mjs",
+    "build": "npm install && npx astro build"
+  },
+  "dependencies": {
+    "astro": "latest",
+    "@astrojs/node": "latest",
+    "@astrojs/tailwind": "latest",
+    "tailwindcss": "latest"
   }
 }
