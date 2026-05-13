@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "npx astro build",
-    "start": "node entry.js"
+    "start": "node server.cjs"
   },
   "dependencies": {
     "astro": "^5.0.0",
