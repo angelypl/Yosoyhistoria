@@ -24,10 +24,10 @@ const posts = await getCollection('posts');
 								<h2 class="text-3xl font-bold text-zinc-100 mb-2 group-hover:text-red-500 transition-colors duration-300">{post.data.title}</h2>
 							</a>
 							<div class="font-mono text-xs text-zinc-500 mb-4 border-l-2 border-red-900 pl-2">
-								FECHA INGRESO: {post.data.pubDate ? new Date(post.data.pubDate).toLocaleDateString('es-ES') : 'DESCONOCIDA'}
+								Fecha de publicación: {post.data.pubDate ? new Date(post.data.pubDate).toLocaleDateString('es-ES') : 'DESCONOCIDA'}
 							</div>
 							<p class="text-lg text-zinc-400 leading-relaxed mb-4">{post.data.description}</p>
-							<a href={`/posts/${post.slug}`} class="inline-block font-mono text-sm text-zinc-100 border-b border-zinc-700 hover:border-red-500 hover:text-red-500 transition-all pb-1">ACCEDER AL EXPEDIENTE →</a>
+							<a href={`/posts/${post.slug}`} class="inline-block font-mono text-sm text-zinc-100 border-b border-zinc-700 hover:border-red-500 hover:text-red-500 transition-all pb-1">¿Cómo pasó todo esto?</a>
 						</article>
 					))
 				)}
