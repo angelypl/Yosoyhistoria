@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "start": "node ./dist/server/entry.mjs",
-    "build": "npm install --legacy-peer-deps && npx astro build"
+    "start": "echo 'Static mode'",
+    "build": "npx astro build"
   },
   "dependencies": {
     "astro": "^5.0.0",
