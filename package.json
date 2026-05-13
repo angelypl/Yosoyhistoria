@@ -4,7 +4,8 @@
   "description": "Prueba de despliegue",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "build": "mkdir build && cp app.js build/"
+    "dev": "astro dev",
+    "start": "astro preview",
+    "build": "astro build"
   }
 }
