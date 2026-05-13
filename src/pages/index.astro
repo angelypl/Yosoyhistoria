@@ -6,24 +6,26 @@ const posts = await getCollection('posts');
 	<head>
 		<meta charset="utf-8" />
 		<title>Yo Soy Historia | Archivo</title>
-		<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
-	<body style="background-color: #050505; color: #e5e5e5; font-family: 'PT Serif', serif; margin: 0;">
-		<div style="max-width: 800px; margin: 0 auto; padding: 4rem 2rem; border-left: 1px solid #222; border-right: 1px solid #222; min-height: 100vh;">
-			<header style="text-align: center; border-bottom: 4px double #333; padding-bottom: 2rem; margin-bottom: 3rem;">
-				<h1 style="font-size: 4rem; text-transform: uppercase; margin: 0; letter-spacing: -2px;">Yo Soy Historia</h1>
-				<p style="color: #666; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; margin-top: 1rem;">Investigaciones, misterios y casos</p>
+	<body class="bg-zinc-950 text-zinc-300 font-serif antialiased selection:bg-red-900 selection:text-white">
+		<div class="max-w-3xl mx-auto px-6 py-12 border-x border-zinc-900 min-h-screen shadow-2xl shadow-black">
+			<header class="text-center border-b-4 border-double border-zinc-800 pb-8 mb-12">
+				<h1 class="text-5xl md:text-6xl uppercase tracking-tighter text-zinc-100 font-bold">Yo Soy Historia</h1>
+				<p class="text-red-700 font-mono uppercase tracking-widest text-xs mt-4 font-bold">Investigaciones, misterios y casos</p>
 			</header>
 			<main>
 				{posts && posts.length === 0 ? (
-					<p style="text-align: center; color: #444;">No hay expedientes cargados todavía.</p>
+					<p class="text-center text-zinc-600 font-mono text-sm">ARCHIVOS NO ENCONTRADOS.</p>
 				) : (
 					posts && posts.map(post => (
-						<article style="margin-bottom: 4rem; border-bottom: 1px solid #111; padding-bottom: 2rem;">
-							<h2 style="font-size: 2.5rem; margin-bottom: 0.5rem;">{post.data.title}</h2>
-							<p style="color: #555; font-style: italic;">Publicado el {post.data.pubDate ? post.data.pubDate.toLocaleDateString() : 'Recientemente'}</p>
-							<p style="font-size: 1.2rem; color: #aaa; line-height: 1.6;">{post.data.description}</p>
-							<a href={`/posts/${post.slug}`} style="color: white; font-weight: bold; text-decoration: none; border-bottom: 1px solid white;">Leer más →</a>
+						<article class="mb-16 border-b border-zinc-900 pb-8 group">
+							<h2 class="text-3xl font-bold text-zinc-100 mb-2 group-hover:text-red-500 transition-colors duration-300">{post.data.title}</h2>
+							<div class="font-mono text-xs text-zinc-500 mb-4 border-l-2 border-red-900 pl-2">
+								FECHA INGRESO: {post.data.pubDate ? new Date(post.data.pubDate).toLocaleDateString('es-ES') : 'DESCONOCIDA'}
+							</div>
+							<p class="text-lg text-zinc-400 leading-relaxed mb-4">{post.data.description}</p>
+							<a href={`/posts/${post.slug}`} class="inline-block font-mono text-sm text-zinc-100 border-b border-zinc-700 hover:border-red-500 hover:text-red-500 transition-all pb-1">ACCEDER AL EXPEDIENTE →</a>
 						</article>
 					))
 				)}
