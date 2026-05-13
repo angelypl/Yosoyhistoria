@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>{post.data.title} | Yo Soy Historia</title>
+		<meta name="description" content={post.data.description} />
+		<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<body style="background-color: #050505; color: #e5e5e5; font-family: 'PT Serif', serif; margin: 0; line-height: 1.6;">
+		<div style="max-width: 800px; margin: 0 auto; padding: 4rem 2rem; border-left: 1px solid #222; border-right: 1px solid #222; min-height: 100vh;">
+			<a href="/" style="color: #666; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">← Volver al archivo</a>
+			
+			<header style="margin-top: 3rem; margin-bottom: 3rem; border-bottom: 2px solid #333; padding-bottom: 2rem;">
+				<h1 style="font-size: 3rem; margin-bottom: 1rem; line-height: 1.1;">{post.data.title}</h1>
+				<div style="color: #666; font-style: italic;">
+					Expediente actualizado: {post.data.pubDate.toLocaleDateString('es-ES')}
+				</div>
+			</header>
+
+			<main style="font-size: 1.2rem; color: #ccc;">
+				<Content />
+			</main>
+		</div>
+	</body>
+</html>
