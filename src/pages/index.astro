@@ -20,7 +20,9 @@ const posts = await getCollection('posts');
 				) : (
 					posts && posts.map(post => (
 						<article class="mb-16 border-b border-zinc-900 pb-8 group">
-							<h2 class="text-3xl font-bold text-zinc-100 mb-2 group-hover:text-red-500 transition-colors duration-300">{post.data.title}</h2>
+							<a href={`/posts/${post.slug}`} class="block text-decoration-none">
+								<h2 class="text-3xl font-bold text-zinc-100 mb-2 group-hover:text-red-500 transition-colors duration-300">{post.data.title}</h2>
+							</a>
 							<div class="font-mono text-xs text-zinc-500 mb-4 border-l-2 border-red-900 pl-2">
 								FECHA INGRESO: {post.data.pubDate ? new Date(post.data.pubDate).toLocaleDateString('es-ES') : 'DESCONOCIDA'}
 							</div>
